@@ -135,7 +135,7 @@ class TrainerTrainingTricksMixin(ABC):
                algorithm is terminated
 
         """
-        if not hasattr(model, batch_arg_name):
+        if not hasattr(model.hparams, batch_arg_name):
             raise MisconfigurationException(f'Field {batch_arg_name} not found in `model.hparams`')
 
         if hasattr(model.train_dataloader, 'patch_loader_code'):
